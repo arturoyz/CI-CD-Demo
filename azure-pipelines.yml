@@ -1,0 +1,26 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+    displayName: 'Instalar Node.js'
+
+  - script: npm install
+    displayName: 'Instalar dependencias'
+
+  - script: npm test
+    displayName: 'Ejecutar tests'
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Build.SourcesDirectory)'
+      includeRootFolder: false
+    displayName: 'Empaquetar aplicacion'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publicar artefacto'

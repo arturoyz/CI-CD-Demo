@@ -1,0 +1,17 @@
+{
+  "name": "ci-cd-demo",
+  "version": "1.0.0",
+  "description": "API demo para CI/CD con Azure DevOps",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest --forceExit"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
